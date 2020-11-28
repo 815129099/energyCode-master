@@ -14,6 +14,19 @@ import store from './store';
 import VCharts from 'v-charts';
 import {hasPermission} from "@/api/utils/hasPermission";
 import {default as api} from './api/utils/api'
+
+import dataV from '@jiaminghi/data-view';
+Vue.use(dataV);
+
+// 按需引入vue-awesome图标
+import Icon from 'vue-awesome/components/Icon';
+import 'vue-awesome/icons/chart-bar.js';
+import 'vue-awesome/icons/chart-area.js';
+import 'vue-awesome/icons/chart-pie.js';
+import 'vue-awesome/icons/chart-line.js';
+import 'vue-awesome/icons/align-left.js';
+// 全局注册图标
+Vue.component('icon', Icon);
 const whiteList = ['/login', '/404'] //白名单,不需要登录的路由
 /*
 import VeeValidate from 'vee-validate';
@@ -37,6 +50,16 @@ const config = {
        }
 };
 Vue.use(VeeValidate, config);*/
+// 适配flex
+import '@/common/flexible.js';
+
+// 引入全局css
+import './assets/scss/style.scss';
+//引入echart
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
+Vue.config.productionTip = false;
+
 Vue.use(VueCookie);
 Vue.use(VCharts);
 Vue.config.productionTip = false

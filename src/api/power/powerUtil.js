@@ -90,3 +90,39 @@ export function getPowerByRatio(params) {
     data: JSON.stringify(params)
   })
 }
+
+
+//平台大数据显示右侧耗电排行
+export function getYesData(params) {
+  return request({
+    method: 'post',
+    url: '/api/power/getYesData.do',
+    //url:'http://10.30.100.110:8088/api/power/Power.do',
+    // data: requestParam(params, 'post', false, 'json')
+    data: requestParam()
+  })
+}
+
+
+//平台大数据显示中间
+export function getCenterData(params) {
+  return request({
+    method: 'post',
+    url: '/api/power/getCenterData.do',
+    //url:'http://10.30.100.110:8088/api/power/Power.do',
+    // data: requestParam(params, 'post', false, 'json')
+    data: requestParam()
+  })
+}
+
+
+//显示峰平谷数据
+export function getPeakData(params) {
+  return request({
+    method: 'post',
+    url: '/api/power/getPeakData.do',
+    //url:'http://10.30.100.110:8088/api/power/Power.do',
+    // data: requestParam(params, 'post', false, 'json')
+    data: requestParam()
+  })
+}

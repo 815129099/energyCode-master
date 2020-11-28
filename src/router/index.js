@@ -19,6 +19,10 @@ export const constantRouterMap = [
         path: '/403',
         component: resolve => require(['../components/page/403.vue'], resolve),
         name: '403'
+    },
+    {
+        path: '/show',
+        component: resolve => require(['../components/views/show.vue'], resolve)
     }
 ]
 
@@ -378,9 +382,9 @@ export const asyncRouterMap = [
 */
 //实例化vue的时候只挂载constantRouter
 export default new Router({
+   // mode: "history",
     routes: constantRouterMap
 });
-
 
 /*
 export default new Router({

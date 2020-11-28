@@ -121,7 +121,7 @@
             @row-click="handleclick"
             :row-class-name="tableRowClassName"
           >
-           <el-table-column type="index" align="center" width="40" label="序号" sortable></el-table-column>
+            <el-table-column type="index" align="center" width="40" label="序号" sortable></el-table-column>
             <el-table-column prop="EMeterName" label="计量点名称" align="center" sortable show-overflow-tooltip></el-table-column>
             <el-table-column prop="EMeterID" label="计量点ID" align="center" sortable></el-table-column>
             <el-table-column prop="powerTotal" label="正向功总（kWh" align="center" sortable></el-table-column>

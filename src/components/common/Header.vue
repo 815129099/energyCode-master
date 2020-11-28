@@ -7,6 +7,12 @@
         <div class="logo">能源管理系统</div>
         <div class="header-right">
             <div class="header-user-con">
+                <!-- 大数据平台 -->
+                <div class="btn-fullscreen" @click="hrefBigData">
+                    <el-tooltip effect="dark" content="大数据分析平台" placement="bottom">
+                        <i class="el-lwx-tubiao-zhuzhuangtu"></i>
+                    </el-tooltip>
+                </div>
                 <!-- 全屏显示 -->
                 <div class="btn-fullscreen" @click="handleFullScreen">
                     <el-tooltip effect="dark" :content="fullscreen?`取消全屏`:`全屏`" placement="bottom">
@@ -77,6 +83,10 @@
             collapseChage(){
                 this.collapse = !this.collapse;
                 bus.$emit('collapse', this.collapse);
+            },
+            hrefBigData(){
+                //window.location.href = 'http://localhost:8086/#/show';
+                window.open('http://localhost:8086/#/show');
             },
             // 全屏事件
             handleFullScreen(){
