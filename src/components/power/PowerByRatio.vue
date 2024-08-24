@@ -240,8 +240,11 @@ export default {
 
     //加载树状图
     loadMenu: function() {
+           let params = {
+        geNumber: localStorage.getItem("username")
+      };
       API.powerUtil
-        .getMenu()
+        .getMenu(params)
         .then(({ data }) => {
           console.log(data.data);
           if (data.status == 0) {

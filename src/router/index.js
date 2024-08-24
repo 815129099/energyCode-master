@@ -76,6 +76,24 @@ export const asyncRouterMap = [
                 menu: 'powerByRatio' //页面需要的权限
             },
             {
+                path: '/predictPower',
+                component: resolve => require(['../components/predict/PredictPower.vue'], resolve),
+                meta: { title: '预测电量' },
+                menu: 'predictPower' //页面需要的权限
+            },
+            {
+                path: '/predictPowerPrice',
+                component: resolve => require(['../components/predict/PredictPowerPrice.vue'], resolve),
+                meta: { title: '电力定价' },
+                menu: 'predictPowerPrice' //页面需要的权限
+            },
+            {
+                path: '/predictPrice',
+                component: resolve => require(['../components/predict/PredictPrice.vue'], resolve),
+                meta: { title: '电力定价结果统计' },
+                menu: 'predictPrice' //页面需要的权限
+            },
+            {
                 path: '/icon',
                 component: resolve => require(['../components/page/Icon.vue'], resolve),
                 meta: { title: '图标' },
@@ -90,7 +108,7 @@ export const asyncRouterMap = [
             {
                 path: '/tabs',
                 component: resolve => require(['../components/page/Tabs.vue'], resolve),
-                meta: { title: 'tab选项卡' },
+                meta: { title: '消息站' },
                 menu: 'tabs' //页面需要的权限
             },
             {
@@ -140,10 +158,10 @@ export const asyncRouterMap = [
                 meta: { title: '用户列表' },
                 menu: 'userList' //页面需要的权限
             },{
-                // 用户列表
+                // 用户访问记录
                 path: '/record',
                 component: resolve => require(['../components/page/Record.vue'], resolve),
-                meta: { title: '用户列表' },
+                meta: { title: '用户访问记录' },
                 menu: 'record' //页面需要的权限
             }
         ]
@@ -192,6 +210,27 @@ export const menuLists = [
     }
     ,
     {
+        index: 'predict',
+        icon: "el-lwx-icon_yingyongguanli",
+        title: "预测管理",
+        children:[{
+            index: 'predictPower',
+            icon: "el-lwx-ranqibiao_shiti",
+            title: "电量预测"
+        },
+        {
+            index: 'predictPowerPrice',
+            icon: "el-lwx-ranqibiao_shiti",
+            title: "电力定价"
+        },
+        {
+            index: 'predictPrice',
+            icon: "el-lwx-ranqibiao_shiti",
+            title: "电力定价结果统计"
+        }]
+    }
+    ,
+    {
         index: 'userList',
         icon: "el-lwx-icon-test1",
         title: "用户管理"
@@ -219,7 +258,7 @@ export const menuLists = [
     {
         index: 'tabs',
         icon: "el-lwx-home",
-        title: "tab选项卡"
+        title: "消息站"
     },
     {
         index: 'form',

@@ -6,26 +6,26 @@
           <icon name="chart-bar"></icon>
         </span>
         <div class="d-flex">
-          <span class="fs-xl text mx-2">任务通过率</span>
+          <span class="fs-xl text mx-2">电量占比(KWh)</span>
           <dv-decoration-3 style="width:1.25rem;height:.25rem; position:relative;top:-.0375rem;" />
         </div>
       </div>
-      <div class="d-flex jc-center">
-        <CentreLeft1Chart />
+      <div class="d-flex" style="float:right;">
+        <CentreLeft1Chart :powerTotalList="powerTotalList"/>
       </div>
-      <!-- 4个主要的数据 -->
+      <!-- 4个主要的数据 
       <div class="bottom-data">
         <div class="item-box" v-for="(item,index) in numberData" :key="index">
           <div class="d-flex">
             <span class="coin">￥</span>
-            <dv-digital-flop :config="item.number" style="width:2.5rem;height:.625rem;" />
+            <dv-digital-flop :config="item.number" style="width:2.0rem;height:0.525rem;" />
           </div>
-          <p class="text" style="text-align: center;">
+          <p class="text" style="text-align: left;">
             {{item.text}}
             <span class="colorYellow">(件)</span>
           </p>
         </div>
-      </div>
+      </div>-->
     </div>
   </div>
 </template>
@@ -33,6 +33,9 @@
 <script>
 import CentreLeft1Chart from "@/components/echart/centerLeft/centerLeft1Chart";
 export default {
+  props:{
+    powerTotalList:Array
+  },
   data() {
     return {
       config: {
@@ -123,12 +126,12 @@ export default {
 
 <style lang="scss">
 #centreLeft1 {
-  padding: 0.2rem;
-  height: 5.125rem;
+  padding: 0.3rem 0.2rem;
+  height: 6.5rem;
   min-width: 3.75rem;
   border-radius: 0.0625rem;
   .bg-color-black {
-    height: 4.8125rem;
+    height: 6.0625rem;
     border-radius: 0.125rem;
   }
   .text {
@@ -142,16 +145,14 @@ export default {
       padding-top: 0.125rem;
     }
   }
-
   .bottom-data {
+    margin-left: 0.5rem;
     .item-box {
-      float: right;
-      position: relative;
-      width: 50%;
+     margin-top: 0.5rem;
+      width: 100%;
       color: #d3d6dd;
       // 金币
       .coin {
-        position: absolute;
         left: 0.1rem;
         top: 0.2125rem;
         font-size: 0.25rem;

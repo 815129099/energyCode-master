@@ -7,17 +7,14 @@
 <script>
 import Chart from './chart.vue';
 export default {
+   props:{
+    powerTotalList:Array
+  },
   data () {
     return {
       cdata: {
-        xData: ["rose1", "rose2", "rose3", "rose4", "rose5", "rose6"],
+        xData: [],
         seriesData: [
-          { value: 10, name: "rose1" },
-          { value: 5, name: "rose2" },
-          { value: 15, name: "rose3" },
-          { value: 25, name: "rose4" },
-          { value: 20, name: "rose5" },
-          { value: 35, name: "rose6" }
         ]
       }
     }
@@ -25,9 +22,21 @@ export default {
   components: {
     Chart,
   },
-  mounted () {
+  created () {
+    this.setDataList();
+    //console.log(this.powerTotalList);
   },
   methods: {
+    setDataList(){
+      //console.log(this.powerTotalList);
+      debugger;
+      this.cdata.seriesData = this.powerTotalList;
+      let data = this.cdata.seriesData;
+      for(let i=0;i<data.length;i++){
+        this.cdata.xData.push(data[i].name);
+      }
+      console.log(this.cdata.xData);
+    }
   }
 }
 </script>

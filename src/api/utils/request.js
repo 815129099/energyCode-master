@@ -22,7 +22,6 @@ service.interceptors.request.use(config => {
 
 // response拦截器
 service.interceptors.response.use(response => {
-    console.log(response);
      if(response.data && response.data.status =="20011") { // -1, token失效 401 没有token
         //Vue.cookie.delete('token');
        // Vue.router.push({name: 'login'});

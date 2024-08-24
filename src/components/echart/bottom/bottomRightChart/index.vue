@@ -25,16 +25,13 @@ export default {
     Chart,
   },
   mounted () {
-    this.drawTimingFn();
-  },
-  beforeDestroy () {
-    clearInterval(this.drawTiming);
+    //this.drawTimingFn();
   },
   methods: {
     drawTimingFn () {
       this.setData();
       this.drawTiming = setInterval(() => {
-        this.setData();
+        //this.setData();
       }, 6000);
     },
     setData () {

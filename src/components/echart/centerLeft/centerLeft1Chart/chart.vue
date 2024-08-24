@@ -3,8 +3,8 @@
     <Echart
       :options="options"
       id="centreLeft1Chart"
-      height="2.75rem"
-      width="3.25rem"
+      height="6.5rem"
+      width="10.2rem"
     ></Echart>
   </div>
 </template>
@@ -31,38 +31,23 @@ export default {
       handler (newData) {
         this.options = {
           color: [
-            "#37a2da",
-            "#32c5e9",
-            "#9fe6b8",
-            "#ffdb5c",
-            "#ff9f7f",
-            "#fb7293",
-            "#e7bcf3",
             "#8378ea"
           ],
           tooltip: {
             trigger: "item",
             formatter: "{a} <br/>{b} : {c} ({d}%)"
           },
-          toolbox: {
-            show: true
-          },
-          calculable: true,
+   
           legend: {
-            orient: "horizontal",
-            icon: "circle",
-            bottom: 0,
-            x: "center",
+            orient: "vertical",
             data: newData.xData,
-            textStyle: {
-              color: "#fff"
-            }
+            left:"left"
           },
           series: [
             {
-              name: "通过率统计",
+              name: "电表电量占比",
               type: "pie",
-              radius: [10, 60],
+              radius: [20, 130],
               roseType: "area",
               center: ["50%", "40%"],
               data: newData.seriesData

@@ -16,7 +16,7 @@ module.exports = {
             '/api': {
                 // 目标服务器地址
                 target: 'http://localhost:888/',
-                //target: 'http://47.106.172.176:888/',
+                // target: 'http://47.106.172.176:888/',
                 //路径重写
                 //pathRewrite: {'^/api' : ''},
                 ws:true,

@@ -85,8 +85,8 @@
                 bus.$emit('collapse', this.collapse);
             },
             hrefBigData(){
-                //window.location.href = 'http://localhost:8086/#/show';
                 window.open('http://localhost:8086/#/show');
+                // window.open('http://47.106.172.176:888/#/show');
             },
             // 全屏事件
             handleFullScreen(){

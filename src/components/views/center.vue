@@ -1,218 +1,197 @@
 <template>
   <div id="center">
     <div class="up">
-      <div class="bg-color-black item" v-for="item in titleItem" :key="item.title">
-        <p class="ml-3 colorBlue fw-b">{{item.title}}</p>
+      <div
+        class="bg-color-black item"
+        v-for="item in titleItem"
+        :key="item.title"
+      >
+        <p class="ml-3 colorBlue fw-b">{{ item.title }}</p>
         <div>
-          <dv-digital-flop :config="item.number" style="width:2.3rem;height:0.675rem;" />
+          <dv-digital-flop
+            :config="item.number"
+            style="width: 2.3rem; height: 0.675rem"
+          />
         </div>
       </div>
     </div>
     <div class="down">
-      <div class="ranking bg-color-black">
-        <span style="color:#5cd9e8">
-          <icon name="align-left"></icon>
-        </span>
-        <span class="fs-xl text mx-2 mb-1">年度负责人组件达标榜</span>
-        <dv-scroll-ranking-board :config="ranking" style="height:2.75rem" />
-      </div>
-      <div class="percent">
-        <div class="item bg-color-black">
-          <span>今日任务通过率</span>
-          <CenterChart :id="rate[0].id" :tips="rate[0].tips" :colorObj="rate[0].colorData" />
-        </div>
-        <div class="item bg-color-black">
-          <span>今日任务达标率</span>
-          <CenterChart :id="rate[1].id" :tips="rate[1].tips" :colorObj="rate[1].colorData" />
-        </div>
-        <div class="water">
-          <dv-water-level-pond :config="water" style="height: 1.5rem" />
-        </div>
-      </div>
+      <Echart
+        :options="options"
+        id="centerChart"
+        height="3.1875rem"
+        width="7.5rem"
+      ></Echart>
     </div>
   </div>
 </template>
 
 <script>
+import Echart from "@/common/echart";
 import CenterChart from "@/components/echart/center/centerChartRate";
 
 export default {
-  name:"center",
-  props:{
-    list:Array
+  name: "center",
+  props: {
+    list: Array,
+    centerList: Object,
   },
-  data () {
+  data() {
     return {
+      options: {},
       titleItem: [
         {
           title: "今日投入使用电表数",
           number: {
             number: [120],
             toFixed: 0,
-            content: "{nt}"
+            content: "{nt}",
           },
-          textAlign:"left",
+          textAlign: "left",
           style: {
             fontSize: 25,
-            fill: '#3de7c9'
-          }
+            fill: "#3de7c9",
+          },
         },
         {
           title: "未使用电表数",
           number: {
             number: [18],
             toFixed: 0,
-            content: "{nt}"
+            content: "{nt}",
           },
-          textAlign:"left",
+          textAlign: "left",
           style: {
             fontSize: 25,
-            fill: '#3de7c9'
-          }
+            fill: "#3de7c9",
+          },
         },
         {
           title: "电表使用率",
           number: {
             number: [2],
             toFixed: 2,
-            content: "{nt}"
+            content: "{nt}",
           },
-          textAlign:"left",
+          textAlign: "left",
           style: {
             fontSize: 25,
-            fill: '#3de7c9'
-          }
+            fill: "#3de7c9",
+          },
         },
         {
           title: "昨日总电量(KWh)",
           number: {
             number: [14],
             toFixed: 2,
-            content: "{nt}"
+            content: "{nt}",
           },
-          textAlign:"left",
+          textAlign: "left",
           style: {
             fontSize: 25,
-            fill: '#3de7c9'
-          }
+            fill: "#3de7c9",
+          },
         },
         {
           title: "今日电量(KWh)",
           number: {
             number: [106],
             toFixed: 2,
-            content: "{nt}"
-          }
+            content: "{nt}",
+          },
         },
         {
           title: "今日电量占比",
           number: {
             number: [100],
             toFixed: 4,
-            content: "{nt}"
-          }
-        }
-      ],
-      ranking: {
-        data: [
-          {
-            name: "周口",
-            value: 55
+            content: "{nt}",
           },
-          {
-            name: "南阳",
-            value: 120
-          },
-          {
-            name: "西峡",
-            value: 78
-          },
-          {
-            name: "驻马店",
-            value: 66
-          },
-          {
-            name: "新乡",
-            value: 80
-          },
-          {
-            name: "新乡2",
-            value: 80
-          },
-          {
-            name: "新乡3",
-            value: 80
-          },
-          {
-            name: "新乡4",
-            value: 80
-          },
-          {
-            name: "新乡5",
-            value: 80
-          },
-          {
-            name: "新乡6",
-            value: 80
-          },
-        ],
-        carousel: "single",
-        unit: "人"
-      },
-      water: {
-        data: [24, 45],
-        shape: "roundRect",
-        formatter: "{value}%",
-        waveNum: 3
-      },
-      // 通过率和达标率的组件复用数据
-      rate: [
-        {
-          id: "centerRate1",
-          tips: 60,
-          colorData: {
-            textStyle: "#3fc0fb",
-            series: {
-              color: ["#00bcd44a", "transparent"],
-              dataColor: {
-                normal: "#03a9f4",
-                shadowColor: "#97e2f5"
-              }
-            }
-          }
         },
-        {
-          id: "centerRate2",
-          tips: 40,
-          colorData: {
-            textStyle: "#67e0e3",
-            series: {
-              color: ["#faf3a378", "transparent"],
-              dataColor: {
-                normal: "#ff9800",
-                shadowColor: "#fcebad"
-              }
-            }
-          }
-        }
       ],
     };
   },
   components: {
-    CenterChart
+    CenterChart,
+    Echart,
     // centerChart1,
     // centerChart2
   },
-  
-  created(){
+  watch: {
+    centerList: {
+      handler(newData) {
+        this.options = {
+          // Make gradient line here
+          visualMap: [
+            {
+              show: false,
+              type: "continuous",
+              seriesIndex: 0,
+              min: 0,
+              max: 150,
+            },
+          ],
+          title: {
+            text: "三项电流",
+            left: "center",
+            align: "right",
+          },
+          tooltip: {
+            trigger: "axis",
+          },
+          legend: {
+            data: ["Ia", "Ib", "Ic"],
+            left: 10,
+          },
+          xAxis: [
+            {
+              data: this.centerList.TimeList,
+            },
+          ],
+          yAxis: [
+            {
+              splitLine: { show: false },
+            },
+          ],
+          grid: [
+            {
+              bottom: "10%",
+            },
+          ],
+          series: [
+            {
+              name: "Ia",
+              type: "line",
+              showSymbol: false,
+              data: this.centerList.IaList,
+            },
+            {
+              name: "Ib",
+              type: "line",
+              showSymbol: false,
+              data: this.centerList.IbList,
+            },
+            {
+              name: "Ic",
+              type: "line",
+              showSymbol: false,
+              data: this.centerList.IcList,
+            },
+          ],
+        };
+      },
+    },
+  },
+
+  created() {
     let array = this.titleItem;
-    for(let i=0;i<array.length;i++){
+    for (let i = 0; i < array.length; i++) {
       let arr = [];
       arr.push(this.list[i]);
       array[i].number.number = arr;
     }
-    console.log(this.titleItem);
   },
+  mounted() {},
 };
 </script>
 

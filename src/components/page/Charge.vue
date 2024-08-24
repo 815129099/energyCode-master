@@ -294,7 +294,6 @@ export default {
       API.chargeUtil
         .ChargeList(params)
         .then(({ data }) => {
-          console.log(data);
           if (data.status == 0) {
             this.tableData = data.data.userData;
             this.totalCount = data.data.number;
@@ -305,7 +304,6 @@ export default {
         })
         .catch(data => {
           this.$message("请求失败ww！");
-          console.log(data);
         });
     },
 
@@ -325,7 +323,6 @@ export default {
           ) +
           ",";
       }
-      console.log(peakTime);
       var flatTime = "";
       for (var i = 0; i < this.addUserForm.FlatTimes.length; i++) {
         flatTime +=
@@ -340,7 +337,6 @@ export default {
           ) +
           ",";
       }
-      console.log(flatTime);
       var ravineTime = "";
       for (var i = 0; i < this.addUserForm.RavineTimes.length; i++) {
         ravineTime +=
@@ -355,7 +351,6 @@ export default {
           ) +
           ",";
       }
-      console.log(ravineTime);
       let params = {
         peakTime: peakTime,
 		flatTime: flatTime,
@@ -372,7 +367,6 @@ export default {
         status : this.addUserForm.status
       };
       this.$refs[addUserForm].validate(valid => {
-		  console.log(this.addUserForm.status);
         if (valid) {
           API.chargeUtil
             .addCharge(params)
@@ -387,7 +381,6 @@ export default {
             })
             .catch(data => {
               this.$message("请求失败！");
-              console.log(data);
             });
         } else {
           return false;
@@ -496,7 +489,6 @@ export default {
             })
             .catch(data => {
               this.$message("请求失败！");
-              console.log(data);
             });
         } else {
           this.$message.error("请求失败！");
@@ -540,7 +532,6 @@ export default {
 
     //搜索
     search: function() {
-      console.log(this.select);
       this.loadData(this.criteria, this.currentPage, this.pagesize);
     },
     add: function() {

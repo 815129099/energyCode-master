@@ -4,12 +4,12 @@ import requestParam from '../utils/requestParam'
 
 
 // 获取菜单
-export function getMenu() {
+export function getMenu(params) {
   return request({
     method: 'post',
     url: '/api/util/menu.do',
     //url:'http://10.30.100.110:8088/api/util/menu.do',
-    data: requestParam()
+    data: JSON.stringify(params)
   })
 }
 
@@ -70,13 +70,13 @@ export function exportData1() {
 }
 
 //最近七天的电表总量
-export function getTotalPowerByWeek() {
+export function getTotalPowerByWeek(params) {
   return request({
     method: 'post',
     url: '/api/util/getTotalPower.do',
     //url:'http://10.30.100.110:8088/api/util/getTotalPower.do',
     // data: requestParam(params, 'post', false, 'json')
-    data: requestParam(),
+    data: JSON.stringify(params),
   })
 }
 
@@ -124,5 +124,97 @@ export function getPeakData(params) {
     //url:'http://10.30.100.110:8088/api/power/Power.do',
     // data: requestParam(params, 'post', false, 'json')
     data: requestParam()
+  })
+}
+
+
+
+//显示电表电量占比数据
+export function getPowerTotal(params) {
+  return request({
+    method: 'post',
+    url: '/api/power/getPowerTotal.do',
+    //url:'http://10.30.100.110:8088/api/power/Power.do',
+    // data: requestParam(params, 'post', false, 'json')
+    data: requestParam()
+  })
+}
+
+//显示异常排行榜
+export function getExceptionData(params) {
+  return request({
+    method: 'post',
+    url: '/api/power/getExceptionData.do',
+    //url:'http://10.30.100.110:8088/api/power/Power.do',
+    // data: requestParam(params, 'post', false, 'json')
+    data: requestParam()
+  })
+}
+
+//电量分析数据
+export function getPowerPredict(params) {
+  return request({
+    method: 'post',
+    url: '/api/power/powerPredict.do',
+    //url:'http://10.30.100.110:8088/api/power/PowerAnalyze.do',
+    // data: requestParam(params, 'post', false, 'json')
+    data: JSON.stringify(params)
+  })
+}
+
+//电量预测数据
+export function generaPowerPredict(params) {
+  return request({
+    method: 'post',
+    url: '/api/power/generaPowerPredict.do',
+    //url:'http://10.30.100.110:8088/api/power/PowerAnalyze.do',
+    // data: requestParam(params, 'post', false, 'json')
+    data: JSON.stringify(params)
+  })
+}
+
+//电力定价
+export function generaPowerPrice(params) {
+  return request({
+    method: 'post',
+    url: '/api/power/generaPowerPrice.do',
+    //url:'http://10.30.100.110:8088/api/power/PowerAnalyze.do',
+    // data: requestParam(params, 'post', false, 'json')
+    data: JSON.stringify(params)
+  })
+}
+
+
+//消息列表
+export function listMessage(params) {
+  return request({
+    method: 'post',
+    url: '/api/util/listMessage.do',
+    //url:'http://10.30.100.110:8088/api/power/PowerAnalyze.do',
+    // data: requestParam(params, 'post', false, 'json')
+    data: JSON.stringify(params)
+  })
+}
+
+//更新消息
+export function updateMessage(params) {
+  return request({
+    method: 'post',
+    url: '/api/util/updateMessage.do',
+    //url:'http://10.30.100.110:8088/api/power/PowerAnalyze.do',
+    // data: requestParam(params, 'post', false, 'json')
+    data: JSON.stringify(params)
+  })
+}
+
+
+//电量分析数据
+export function getPricePredict(params) {
+  return request({
+    method: 'post',
+    url: '/api/power/pricePredict.do',
+    //url:'http://10.30.100.110:8088/api/power/PowerAnalyze.do',
+    // data: requestParam(params, 'post', false, 'json')
+    data: JSON.stringify(params)
   })
 }

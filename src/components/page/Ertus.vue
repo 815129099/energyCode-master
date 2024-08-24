@@ -205,7 +205,6 @@ export default {
       API.userUtil
         .getData(params)
         .then(({ data }) => {
-          console.log(data);
           if (data.status == 0) {
             this.tableData = data.data.userData;
             this.totalCount = data.data.number;
@@ -216,7 +215,6 @@ export default {
         })
         .catch(data => {
           this.$message("请求失败ww！");
-          console.log(data);
         });
     },
 

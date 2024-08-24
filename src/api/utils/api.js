@@ -20,7 +20,6 @@ service.interceptors.request.use(config => {
 service.interceptors.response.use(
   response => {
     const res = response.data;
-    console.log(res);
     if (res.status == '1000') {
       return res;
     }

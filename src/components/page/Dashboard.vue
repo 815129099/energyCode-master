@@ -110,7 +110,7 @@
       <el-col :span="12">
         <el-card shadow="hover">
           <div class="Chart">
-            <h1 style="text-align:center;">最近七天厦门厂区用电总量</h1>
+            <h1 style="text-align:center;">最近七天厂区用电总量</h1>
             <ve-histogram :data="chartData" :settings="chartSettings"></ve-histogram>
           </div>
         </el-card>
@@ -119,7 +119,7 @@
       <el-col :span="12">
         <el-card shadow="hover">
           <div class="Chart">
-            <h1 style="text-align:center;">最近七天厦门厂区用电趋势</h1>
+            <h1 style="text-align:center;">最近七天厂区用电趋势</h1>
             <ve-line :data="chartData" :settings="chartSettings"></ve-line>
           </div>
         </el-card>
@@ -137,7 +137,7 @@ export default {
   data() {
     this.chartSettings = {
       labelMap: {
-        PowerTotal: "厦门厂区用电总量(KWh)"
+        PowerTotal: "厂区用电总量(KWh)"
       }
     };
 
@@ -197,13 +197,15 @@ export default {
         })
         .catch(data => {
           this.$message("请求失败！");
-          console.log(data);
         });
     },
 
     fillData: function() {
+      let params = {
+        geNumber: localStorage.getItem("username")
+      };
       API.powerUtil
-        .getTotalPowerByWeek()
+        .getTotalPowerByWeek(params)
         .then(({ data }) => {
           
           if (data.status == 0) {
@@ -217,7 +219,6 @@ export default {
         })
         .catch(data => {
           this.$message("请求失败ww！");
-          console.log(data);
         });
     },
 

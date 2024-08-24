@@ -10,9 +10,9 @@
 </template>
 
 <script>
-import Echart from '@/common/echart'
+import Echart from "@/common/echart";
 export default {
-  data () {
+  data() {
     return {
       options: {},
     };
@@ -22,92 +22,49 @@ export default {
   },
   props: {
     cdata: {
-      type: Object,
-      default: () => ({})
+      type: Array,
+      default: () => ({}),
     },
   },
   watch: {
     cdata: {
-      handler (newData) {
+      handler(newData) {
         this.options = {
-          angleAxis: {
-            interval: 1,
-            type: "category",
-            data: newData.angleAxisData,
-            z: 10,
-            axisLine: {
-              show: true,
-              lineStyle: {
-                color: "#00c7ff",
-                width: 1,
-                type: "solid"
-              }
-            },
-            axisLabel: {
-              interval: 0,
-              show: true,
-              color: "#00c7ff",
-              margin: 8,
-              fontSize: 12
-            }
+          title: {
+            text: "显示当天峰平谷电量占比",
+            left: "right",
           },
-          radiusAxis: {
-           min: 0,
-            max: 100,
-            interval: 20,
-            axisLine: {
-              show: true,
-              lineStyle: {
-                color: "#00c7ff",
-                width: 1,
-                type: "solid"
-              }
-            },
-            axisLabel: {
-              formatter: "{value} %",
-              show: false,
-              padding: [0, 0, 20, 0],
-              color: "#00c7ff",
-              fontSize: 16
-            },
-            splitLine: {
-              lineStyle: {
-                color: "#00c7ff",
-                width: 1,
-                type: "solid"
-              }
-            }
+          tooltip: {
+            trigger: "item",
+            formatter: "{a} <br/>{b} : {c} ({d}%)",
           },
           legend: {
-            show: true,
-            orient: "vartical",
-            top: "center",
-            bottom: "0%",
-            itemWidth: 16,
-            itemHeight: 8,
-            itemGap: 16,
-            textStyle: {
-              color: "#A3E2F4",
-              fontSize: 12,
-              fontWeight: 0
-            },
+            orient: "vertical",
+            left: "left",
+            data: ["峰", "平", "谷"],
           },
-          polar: {},
           series: [
             {
-              name: "A",
-              type: "bar",
-              radius: ["20%", "100%"],
-              data: newData.seriesData,
-              coordinateSystem: "polar"
-            }
-          ]
+              name: "访问来源",
+              type: "pie",
+              radius: "45%",
+              center: ["50%", "60%"],
+              data: newData,
+              emphasis: {
+                itemStyle: {
+                  shadowBlur: 10,
+                  shadowOffsetX: 0,
+                  shadowColor: "rgba(0, 0, 0, 0.5)",
+                },
+              },
+            },
+          ],
         };
       },
       immediate: true,
-      deep: true
-    }
-  }
+      deep: true,
+    },
+  },
 };
 </script>
 
