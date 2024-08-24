@@ -28,7 +28,7 @@
 
       <path
         v-if="width && height"
-        fill="transparent"
+        :fill="backgroundColor"
         stroke-width="2"
         :stroke="mergedColor[0]"
         :d="`
@@ -92,6 +92,7 @@
 
 <script>
 import autoResize from '../../../mixin/autoResize'
+import { uuid } from '../../../util/index'
 
 import { deepMerge } from '@jiaminghi/charts/lib/util/index'
 
@@ -106,13 +107,17 @@ export default {
     color: {
       type: Array,
       default: () => ([])
+    },
+    backgroundColor: {
+      type: String,
+      default: 'transparent'
     }
   },
   data () {
-    const timestamp = +new Date()
+    const id = uuid()
     return {
       ref: 'border-box-12',
-      filterId: `borderr-box-12-filterId-${timestamp}`,
+      filterId: `borderr-box-12-filterId-${id}`,
 
       defaultColor: ['#2e6099', '#7ce7fd'],
 

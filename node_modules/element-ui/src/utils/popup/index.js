@@ -8,14 +8,6 @@ let idSeed = 1;
 
 let scrollBarWidth;
 
-const getDOM = function(dom) {
-  if (dom.nodeType === 3) {
-    dom = dom.nextElementSibling || dom.nextSibling;
-    getDOM(dom);
-  }
-  return dom;
-};
-
 export default {
   props: {
     visible: {
@@ -69,7 +61,7 @@ export default {
       opened: false,
       bodyPaddingRight: null,
       computedBodyPaddingRight: 0,
-      withoutHiddenClass: false,
+      withoutHiddenClass: true,
       rendered: false
     };
   },
@@ -124,7 +116,7 @@ export default {
 
       this._opening = true;
 
-      const dom = getDOM(this.$el);
+      const dom = this.$el;
 
       const modal = props.modal;
 
@@ -216,6 +208,7 @@ export default {
         document.body.style.paddingRight = this.bodyPaddingRight;
         removeClass(document.body, 'el-popup-parent--hidden');
       }
+      this.withoutHiddenClass = true;
     }
   }
 };

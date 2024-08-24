@@ -1,3 +1,115 @@
+# 2.10.0-alpha (2020-09-09)
+
+### New
+
+- **decoration12:** New decoration(Radar scan).
+
+### Optmization
+
+- **decoration** add `dur` configuration.
+- **activeRingChart** add `digitalFlopUnit` configuration.
+
+# 2.9.9-alpha (2020-08-25)
+
+### Optmization
+
+- **borderBox:** Canonical class name.
+- **autoResize(mixin):** Add exception prompt.
+
+# 2.9.8-alpha (2020-08-20)
+
+### Optmization
+
+- **scrollRankingBoard:** Add value formatter.
+
+# 2.9.7-alpha (2020-08-19)
+
+### Optmization
+
+- **scrollBoard:** Optimize the update effect of updateRows.
+
+# 2.9.6-alpha (2020-08-05)
+
+### Bug Fixes
+
+- **scrollBoard:** Carousel is abnormal when carousel is page.
+- **scrollRankingBoard:** Carousel is abnormal when carousel is page.
+
+# 2.9.5-alpha (2020-08-05)
+
+### Optmization
+
+- **scrollBoard:** Reduce redundant node rendering.
+- **scrollRankingBoard:** Reduce redundant node rendering.
+- **scrollBoard:** Add api to update row data.
+
+# 2.9.4-alpha (2020-07-03)
+
+### Optmization
+
+- **scrollBoard:** Optimize key value [(#8)](https://github.com/DataV-Team/DataV-React/issues/8).
+
+# 2.9.3-alpha (2020-07-02)
+
+### Perfect
+
+- **uuid:** Optimization of `-` in uuid will cause abnormal svg animation [(#108)](https://github.com/DataV-Team/DataV/issues/108).
+
+# 2.9.2-alpha (2020-06-16)
+
+### Bug Fixes
+
+- **scrollBoard:** reset animationIndex when config upate.
+
+# 2.9.1-alpha (2020-06-16)
+
+### Bug Fixes
+
+- **scrollRankingBoard:** Calculation optimization of negative values [(#101)](https://github.com/DataV-Team/DataV/pull/101).
+
+### Perfect
+
+- **digitalFlop:** add number formatter.
+
+# 2.9.0-alpha (2020-06-10)
+
+### ScrollBoard
+
+- **hoverPause:** add `hoverPause` configuration [(#96)](https://github.com/DataV-Team/DataV/pull/96).
+- **mouseover:** add `mouseover` event [(#96)](https://github.com/DataV-Team/DataV/pull/96).
+
+# 2.8.4-alpha (2020-05-25)
+
+### Perfect
+
+- **uuid:** Use uuid to produce unique id.
+
+# 2.8.3-alpha (2020-05-06)
+
+### Perfect
+
+- **activeRingChart:** add `showOriginValue` configuration.
+- **capsuleChart:** add `showValue` configuration.
+
+# 2.8.2-alpha (2020-05-06)
+
+### Perfect
+
+- **borderBox8:** add `reverse` configuration.
+
+# 2.8.1-alpha (2020-05-03)
+
+### Perfect
+
+- **digitalFlop:** Use `\n` to start a newline.
+- **digitalFlop:** `rowGap` configuration.
+
+# 2.7.4-alpha (2020-04-15)
+
+### Bug Fixes
+
+- **capsuleChart:** Calculate exception when min value is less 5 [(#59)](https://github.com/DataV-Team/DataV/pull/59).
+
 # 2.7.3-alpha (2020-01-16)
 
 ### Bug Fixes
@@ -57,7 +169,7 @@
 
 # 2.4.7-alpha (2019-10-24)
 
-### perfect
+### Perfect
 
 - **charts:** Optimize memory leaks.
 - **digitalFlop:** Optimize memory leaks.
